@@ -15,12 +15,15 @@ app = FastAPI(
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://bloodbank-frontend.vercel.app"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://bloodbank-frontend-theta.vercel.app",
+        "https://bloodbank-frontend.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Routers
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
